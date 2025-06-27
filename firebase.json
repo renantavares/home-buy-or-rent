@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/home-buy-or-rent",
+    "public": "dist/home-buy-or-rent/browser",
     "ignore": [
       "firebase.json",
       "**/.*",
