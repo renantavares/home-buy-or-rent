@@ -1,0 +1,44 @@
+<mat-toolbar class="custom-toolbar" color="primary">
+  <div class="toolbar-left">
+    <a routerLink="/" class="app-title-link" tabindex="0">
+      <mat-icon class="app-icon">house</mat-icon>
+      <div class="title-container">
+        <span class="main-title">Home Decider</span>
+        <span class="subtitle">Smart housing decisions</span>
+      </div>
+    </a>
+  </div>
+
+  <span class="spacer"></span>
+
+  <ng-container *ngIf="user$ | async as user; else loggedOut">
+    <button
+      mat-icon-button
+      routerLink="/profile"
+      aria-label="Profile"
+      class="profile-button"
+    >
+      <mat-icon>account_circle</mat-icon>
+    </button>
+    <button mat-raised-button color="accent" (click)="logout()">Logout</button>
+  </ng-container>
+
+  <ng-template #loggedOut>
+    <button
+      mat-flat-button
+      color="secondary"
+      class="auth-button"
+      routerLink="/auth/sign-in"
+    >
+      Sign In
+    </button>
+    <button
+      mat-flat-button
+      color="accent"
+      class="auth-button"
+      routerLink="/auth/sign-up"
+    >
+      Sign Up
+    </button>
+  </ng-template>
+</mat-toolbar>

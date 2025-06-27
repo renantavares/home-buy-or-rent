@@ -1,0 +1,48 @@
+<!-- src/app/auth/auth-form/auth-form.component.html -->
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <mat-form-field appearance="outline" class="w-100 mb-3">
+    <mat-label>Email</mat-label>
+    <input matInput formControlName="email" />
+    <mat-error *ngIf="form.controls.email.hasError('required')"
+      >Email is required</mat-error
+    >
+    <mat-error *ngIf="form.controls.email.hasError('email')"
+      >Enter a valid email</mat-error
+    >
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="w-100 mb-3">
+    <mat-label>Password</mat-label>
+    <input matInput type="password" formControlName="password" />
+    <mat-error *ngIf="form.controls.password.hasError('required')"
+      >Password is required</mat-error
+    >
+  </mat-form-field>
+
+  <div *ngIf="errorMessage" class="text-danger mb-3">{{ errorMessage }}</div>
+
+  <button
+    mat-raised-button
+    color="primary"
+    class="w-100 mb-2"
+    type="submit"
+    [disabled]="loading"
+  >
+    {{ loading ? submitLabel + "..." : submitLabel }}
+  </button>
+
+  <button
+    mat-stroked-button
+    class="w-100"
+    type="button"
+    (click)="googleLogin.emit()"
+    [disabled]="loading"
+  >
+    <img
+      src="assets/icons/google-logo.svg"
+      alt="Google Logo"
+      class="google-icon"
+    />
+    Continue with Google
+  </button>
+</form>

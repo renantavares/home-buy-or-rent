@@ -1,0 +1,18 @@
+<!-- src/app/auth/sign-up/sign-up.component.html -->
+<div class="container mt-5" style="max-width: 400px; margin: auto">
+  <h1 class="mb-4 text-center">Sign Up</h1>
+
+  <app-auth-form
+    [submitLabel]="'Sign Up'"
+    [loading]="loading"
+    [errorMessage]="error"
+    (submitted)="onSubmit($event)"
+    (googleLogin)="onGoogleLogin()"
+  >
+  </app-auth-form>
+
+  <p class="text-center mt-3">
+    Already have an account?
+    <a routerLink="/auth/sign-in">Sign In</a>
+  </p>
+</div>
